@@ -35,31 +35,39 @@ public class GrafikMaze extends Canvas {
     }
 
     public void paint(Graphics g) {
-        drawTree(g, 100, 200);
-        drawTree(g, 150, 250);
-        drawTree(g, 200, 300);
-        drawTree(g, 300, 300);
-        drawTree(g, 350, 250);
-        drawTree(g, 400, 200);
-        drawHouse(g, 200, 165);
+        drawoutlineWallY(g, 50,50);
+        drawoutlineWallX(g, 50,50);
+        drawoutlineWallY(g, 550,50);
+        drawoutlineWallX(g, 50,550);
+        drawWallY(g, 150,50);
+        drawWallY(g, 150,150);
+        drawWallX(g, 150,150);
+        drawWallX(g, 150,250);
+        drawWallX(g, 250,350);
+        drawWallX(g, 50,350);
+        drawWallY(g, 150,450);
+        drawWallY(g, 250,250);
+        drawWallY(g, 250,350);
     }
 
-    private void drawTree(Graphics g, int x, int y) {
-        g.setColor(new Color(0, 128, 0));
-        int[] xs = {0 + x, 10 + x, 20 + x};
-        int[] ys = {30 + y, 0 + y, 30 + y};
-        g.fillPolygon(xs, ys, 3);
-        g.setColor(new Color(200, 128, 30));
-        g.fillRect(7 + x, 30 + y, 6, 10);
+    private void drawWallY(Graphics g, int x, int y) {
+        g.setColor(new Color(0, 0, 0));
+        g.fillRect(x, y, 6, 100);
     }
 
-    private void drawHouse(Graphics g, int x, int y) {
-        g.setColor(new Color(30, 181, 206));
-        int[] xs = {0 + x, 57 + x, 114 + x};
-        int[] ys = {30 + y, 0 + y, 30 + y};
-        g.fillPolygon(xs, ys, 3);
-        g.setColor(new Color(13, 70, 154));
-        g.fillRect(7 + x, 30 + y, 100, 70);
+    private void drawWallX(Graphics g, int x, int y) {
+        g.setColor(new Color(0, 0, 0));
+        g.fillRect(x, y, 100, 6);
+    }
+
+    private void drawoutlineWallY(Graphics g, int x, int y) {
+        g.setColor(new Color(0, 0, 0));
+        g.fillRect(x, y, 6, 500);
+    }
+
+    private void drawoutlineWallX(Graphics g, int x, int y) {
+        g.setColor(new Color(0, 0, 0));
+        g.fillRect(x, y, 500, 6);
     }
 
     public static void main(String[] args) {
