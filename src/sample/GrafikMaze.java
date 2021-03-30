@@ -8,11 +8,15 @@ import java.awt.image.BufferStrategy;
 
 
 public class GrafikMaze extends Canvas  implements Runnable {
+    private final Rectangle player;
+    //private final Rectangle Goal;
     private int width = 606;
     private int height = 606;
 
     int x= 90;
     int y= 90;
+    /*int b= 356;
+    int h= 456;*/
 
     private Thread thread;
     int fps = 30;
@@ -20,7 +24,9 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
     private BufferStrategy bs;
 
-    private int playerX, playerY, playerVX, playerVY;
+    private int playerVX, playerVY;
+
+    /*private int GoalVX, GoalVY;*/
 
     public GrafikMaze() {
         JFrame frame = new JFrame("Killer Maze Raze!");
@@ -30,17 +36,36 @@ public class GrafikMaze extends Canvas  implements Runnable {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addKeyListener(new KL());
         frame.setVisible(true);
+
         isRunning = false;
 
-        playerX = x;
-        playerY = y;
+        /*Goal = new Rectangle(356,456,50,50);
+        GoalVX = 1;
+        GoalVY = 0;
+
+        Goal.b = b;
+        Goal.h = h;
+        GoalVX = 0;
+        GoalVY = 0;*/
+
+        player = new Rectangle(300,150,50,50);
+        playerVX = 1;
+        playerVY = 0;
+
+        player.x = x;
+        player.y = y;
         playerVX = 0;
         playerVY = 0;
     }
 
     public void update() {
-        playerX += playerVX;
-        playerY += playerVY;
+        //if (player.intersects(Goal)) {
+            //System.out.println("Hit!");
+            player.x += playerVX;
+            player.y += playerVY;
+            /*Goal.b += GoalVX
+            Goal.h += GoalVY*/
+        //}
     }
 
     public void draw() {
@@ -87,8 +112,8 @@ public class GrafikMaze extends Canvas  implements Runnable {
         drawEnemydot(g, 296,396);
         drawEnemydot(g, 496,196);
         drawEnemydot(g, 496,496);
-        drawPlayerdot(g, playerX,playerY);
-        drawGoal(g, 356,456);
+        drawPlayerdot(g, player.x,player.y);
+        drawGoal(g, 356/*Goal.b*/,456/*Goal.h*/);
         g.dispose();
         bs.show();
     }
