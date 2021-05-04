@@ -9,14 +9,14 @@ import java.awt.image.BufferStrategy;
 
 public class GrafikMaze extends Canvas  implements Runnable {
     private final Rectangle player;
-    //private final Rectangle Goal;
+    private final Rectangle Goal;
     private int width = 606;
     private int height = 606;
 
     int x= 90;
     int y= 90;
-    /*int b= 356;
-    int h= 456;*/
+    int b= 356;
+    int h= 456;
 
     private Thread thread;
     int fps = 30;
@@ -26,7 +26,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
     private int playerVX, playerVY;
 
-    /*private int GoalVX, GoalVY;*/
+    private int GoalVX, GoalVY;
 
     public GrafikMaze() {
         JFrame frame = new JFrame("Killer Maze Raze!");
@@ -39,14 +39,14 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
         isRunning = false;
 
-        /*Goal = new Rectangle(356,456,50,50);
+        Goal = new Rectangle(356,456,50,50);
         GoalVX = 1;
         GoalVY = 0;
 
-        Goal.b = b;
-        Goal.h = h;
+        Goal.x = b;
+        Goal.y = h;
         GoalVX = 0;
-        GoalVY = 0;*/
+        GoalVY = 0;
 
         player = new Rectangle(300,150,50,50);
         playerVX = 1;
@@ -59,13 +59,13 @@ public class GrafikMaze extends Canvas  implements Runnable {
     }
 
     public void update() {
-        //if (player.intersects(Goal)) {
-            //System.out.println("Hit!");
+        if (player.intersects(Goal)) {
+            System.out.println("Grattis, du har vunnit spelet!");
             player.x += playerVX;
             player.y += playerVY;
-            /*Goal.b += GoalVX
-            Goal.h += GoalVY*/
-        //}
+            Goal.x += GoalVX;
+            Goal.y += GoalVY;
+        }
     }
 
     public void draw() {
@@ -113,7 +113,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
         drawEnemydot(g, 496,196);
         drawEnemydot(g, 496,496);
         drawPlayerdot(g, player.x,player.y);
-        drawGoal(g, 356/*Goal.b*/,456/*Goal.h*/);
+        drawGoal(g, Goal.x,Goal.y);
         g.dispose();
         bs.show();
     }
