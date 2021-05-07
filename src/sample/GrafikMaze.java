@@ -39,7 +39,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
         isRunning = false;
 
-        Goal = new Rectangle(356,456,50,50);
+        Goal = new Rectangle(356,456,15,94);
         GoalVX = 1;
         GoalVY = 0;
 
@@ -48,7 +48,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
         GoalVX = 0;
         GoalVY = 0;
 
-        player = new Rectangle(300,150,50,50);
+        player = new Rectangle(300,150,24,24);
         playerVX = 1;
         playerVY = 0;
 
@@ -59,10 +59,19 @@ public class GrafikMaze extends Canvas  implements Runnable {
     }
 
     public void update() {
+        player.x += playerVX;
+        player.y += playerVY;
+
         if (player.intersects(Goal)) {
             System.out.println("Grattis, du har vunnit spelet!");
-            player.x += playerVX;
-            player.y += playerVY;
+            try {
+                thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            player.x = 90;
+            player.y = 90;
+
             Goal.x += GoalVX;
             Goal.y += GoalVY;
         }

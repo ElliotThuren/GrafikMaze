@@ -6,3 +6,6 @@ Idag så var det sista dagen att arbeta med detta, jag försökte att göra så 
 
 4/5-2021
 Idag så har jag försökt fixa så att man kan komma i mål.
+
+7/5-2021
+Nu har jag fixat så att man kan vinna spelet genom att komma i mål.
