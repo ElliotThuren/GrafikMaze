@@ -39,7 +39,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
         isRunning = false;
 
-        Goal = new Rectangle(356,456,15,94);
+        Goal = new Rectangle(356,456,12,94);
         GoalVX = 1;
         GoalVY = 0;
 

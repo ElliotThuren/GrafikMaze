@@ -9,3 +9,6 @@ Idag så har jag försökt fixa så att man kan komma i mål.
 
 7/5-2021
 Nu har jag fixat så att man kan vinna spelet genom att komma i mål.
+
+11/5-2021
+Ska göra om labyrintens väggar till en polygon så att jag kan göra en stor kollision box på väggarna.
