@@ -28,6 +28,10 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
     private int GoalVX, GoalVY;
 
+    int[] xs = {50,50,56,56};
+    int[] ys = {50,556,556,50};
+    Polygon p = new Polygon(xs,ys,xs.length);
+
     public GrafikMaze() {
         JFrame frame = new JFrame("Killer Maze Raze!");
         this.setSize(606, 606);
@@ -121,6 +125,8 @@ public class GrafikMaze extends Canvas  implements Runnable {
         drawEnemydot(g, 296,396);
         drawEnemydot(g, 496,196);
         drawEnemydot(g, 496,496);
+        g.setColor(new Color(8, 246, 218));
+        g.fillPolygon(p);
         drawPlayerdot(g, player.x,player.y);
         drawGoal(g, Goal.x,Goal.y);
         g.dispose();

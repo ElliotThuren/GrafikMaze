@@ -12,3 +12,6 @@ Nu har jag fixat så att man kan vinna spelet genom att komma i mål.
 
 11/5-2021
 Ska göra om labyrintens väggar till en polygon så att jag kan göra en stor kollision box på väggarna.
+
+18/5-2021
+Nu har jag börjat med att göra om labyrint-väggarna till en polygon så att jag kan sedan lägga en kollision på allt.
