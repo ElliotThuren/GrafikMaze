@@ -10,7 +10,7 @@ import java.awt.image.BufferStrategy;
 public class GrafikMaze extends Canvas  implements Runnable {
     private final Rectangle player;
     private final Rectangle Goal;
-    private int width = 606;
+    private int width = 1806;
     private int height = 606;
 
     int x= 90;
@@ -28,13 +28,17 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
     private int GoalVX, GoalVY;
 
-    int[] xs = {50,50,56,56};
-    int[] ys = {50,556,556,50};
+    int[] xs = {56,56,156,156,56,56,50,50,556,556,56,56,150,150,156,156,350,350,450,450,456,456,356,356,550,550,156,156,256,256,156,156,256,256,356,356,256,256,250,250,150,150,56};
+    int[] ys = {56,350,350,356,356,556,556,50,50,556,556,550,550,450,450,550,550,450,450,150,150,456,456,550,550,56,56,150,150,156,156,250,250,350,350,356,356,456,456,256,256,56,56};
     Polygon p = new Polygon(xs,ys,xs.length);
+
+    int[] xS = {356,356,350,350,356};
+    int[] yS = {150,256,256,150,150};
+    Polygon d = new Polygon(xS,yS,xS.length);
 
     public GrafikMaze() {
         JFrame frame = new JFrame("Killer Maze Raze!");
-        this.setSize(606, 606);
+        this.setSize(1806, 606);
         frame.add(this);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,32 +96,66 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
         g.setColor(Color.WHITE);
         g.fillRect(0,0,width,height);
-        drawOutlineWallX(g, 50,50);
-        drawOutlineWallX(g, 50,550);
-        drawOutlineWallY(g, 50,50);
-        drawOutlineWallY(g, 550,50);
-        drawWallX(g, 50,350);
-        drawWallX(g, 150,150);
-        drawWallX(g, 150,250);
-        drawWallX(g, 250,350);
-        drawWallX(g, 350,450);
-        drawWallY(g, 150,50);
-        drawWallY(g, 150,150);
-        drawWallY(g, 350,150);
-        drawWallY(g, 450,150);
-        drawWallY(g, 250,250);
-        drawWallY(g, 450,250);
-        drawWallY(g, 250,350);
-        drawWallY(g, 450,350);
-        drawWallY(g, 150,450);
-        drawWallY(g, 350,450);
-        drawFixdot(g, 250,150);
-        drawFixdot(g, 150,350);
-        drawFixdot(g, 350,250);
-        drawFixdot(g, 250,450);
-        drawFixdot(g, 350,350);
-        drawFixdot(g, 450,450);
-        drawFixdot(g, 550,550);
+        drawOutlineWallX(g, 650,50);
+        drawOutlineWallX(g, 650,550);
+        drawOutlineWallY(g, 650,50);
+        drawOutlineWallY(g, 1150,50);
+        drawOutlineWallX(g, 1250,50);
+        drawOutlineWallX(g, 1250,550);
+        drawOutlineWallY(g, 1250,50);
+        drawOutlineWallY(g, 1750,50);
+        drawWallY(g,1350,50);
+        drawWallY(g,1350,150);
+        drawWallY(g,1350,250);
+        drawWallY(g,1350,350);
+        drawWallY(g,1450,150);
+        drawWallY(g,1450,250);
+        drawWallY(g,1450,350);
+        drawWallY(g,1450,450);
+        drawWallY(g,1550,50);
+        drawWallY(g,1550,150);
+        drawWallY(g,1550,250);
+        drawWallY(g,1550,350);
+        drawWallY(g,1650,150);
+        drawWallY(g,1650,250);
+        drawWallY(g,1650,350);
+        drawWallY(g,1650,450);
+        drawWallY(g,750,50);
+        drawWallY(g,750,150);
+        drawWallY(g,750,250);
+        drawWallY(g,750,350);
+        drawWallY(g,850,150);
+        drawWallY(g,850,250);
+        drawWallY(g,1050,150);
+        drawWallY(g,1050,250);
+        drawWallY(g,1050,350);
+        drawWallY(g,950,250);
+        drawWallX(g,750,450);
+        drawWallX(g,850,450);
+        drawWallX(g,950,450);
+        drawWallX(g,850,350);
+        drawWallX(g,850,150);
+        drawWallX(g,950,150);
+        drawWallhX(g,1250,150);
+        drawWallhX(g,1290,250);
+        drawWallhX(g,1250,350);
+        drawWallhX(g,1290,450);
+        drawWallhX(g,1350,150);
+        drawWallhX(g,1390,250);
+        drawWallhX(g,1350,350);
+        drawWallhX(g,1390,450);
+        drawWallhX(g,1450,150);
+        drawWallhX(g,1490,250);
+        drawWallhX(g,1450,350);
+        drawWallhX(g,1490,450);
+        drawWallhX(g,1550,150);
+        drawWallhX(g,1590,250);
+        drawWallhX(g,1550,350);
+        drawWallhX(g,1590,450);
+        drawWallhX(g,1650,150);
+        drawWallhX(g,1690,250);
+        drawWallhX(g,1650,350);
+        drawWallhX(g,1690,450);
         drawEnemydot(g, 96,296);
         drawEnemydot(g, 96,496);
         drawEnemydot(g, 196,196);
@@ -125,8 +163,9 @@ public class GrafikMaze extends Canvas  implements Runnable {
         drawEnemydot(g, 296,396);
         drawEnemydot(g, 496,196);
         drawEnemydot(g, 496,496);
-        g.setColor(new Color(8, 246, 218));
+        g.setColor(new Color(0, 0, 0));
         g.fillPolygon(p);
+        g.fillPolygon(d);
         drawPlayerdot(g, player.x,player.y);
         drawGoal(g, Goal.x,Goal.y);
         g.dispose();
@@ -209,27 +248,32 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
     private void drawOutlineWallX(Graphics g, int x, int y) {
         g.setColor(new Color(0, 0, 0));
-        g.fillRect(x, y, 500, 6);
+        g.fillRect(x, y, 506, 6);
     }
 
     private void drawOutlineWallY(Graphics g, int x, int y) {
         g.setColor(new Color(0, 0, 0));
-        g.fillRect(x, y, 6, 500);
+        g.fillRect(x, y, 6, 506);
     }
 
     private void drawWallX(Graphics g, int x, int y) {
         g.setColor(new Color(0, 0, 0));
-        g.fillRect(x, y, 100, 6);
+        g.fillRect(x, y, 106, 6);
+    }
+
+    private void drawWallhX(Graphics g, int x, int y) {
+        g.setColor(new Color(0, 0, 0));
+        g.fillRect(x, y, 66, 6);
     }
 
     private void drawWallY(Graphics g, int x, int y) {
         g.setColor(new Color(0, 0, 0));
-        g.fillRect(x, y, 6, 100);
+        g.fillRect(x, y, 6, 106);
     }
 
-    private void drawFixdot(Graphics g, int x, int y) {
+    private void drawWallhY(Graphics g, int x, int y) {
         g.setColor(new Color(0, 0, 0));
-        g.fillRect(x, y, 6, 6);
+        g.fillRect(x, y, 6, 66);
     }
 
     private void drawEnemydot(Graphics g, int x, int y) {
