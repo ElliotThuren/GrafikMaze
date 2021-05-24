@@ -15,3 +15,9 @@ Ska göra om labyrintens väggar till en polygon så att jag kan göra en stor k
 
 18/5-2021
 Nu har jag börjat med att göra om labyrint-väggarna till en polygon så att jag kan sedan lägga en kollision på allt.
+
+21/5-2021
+Idag så tog det en stund att komma igång för att jag inte hade tillgång till min skoldator, men jag har jobbat lite hemma.
+
+24/5-2021
+Nu är jag i princip klar med alla labyrinterna, nu ska jag bara göra så att fienderna fungerar.
