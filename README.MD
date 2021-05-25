@@ -21,3 +21,6 @@ Idag så tog det en stund att komma igång för att jag inte hade tillgång till
 
 24/5-2021
 Nu är jag i princip klar med alla labyrinterna, nu ska jag bara göra så att fienderna fungerar.
+
+25/5-2021
+Jag är nästan klar med denna uppgift, jag behöver bara lite hjälp med hur jag ska göra med fienderna, så jag har jobbat med fysiken idag.
