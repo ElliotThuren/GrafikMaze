@@ -27,3 +27,6 @@ Jag är nästan klar med denna uppgift, jag behöver bara lite hjälp med hur ja
 
 28/5-2021
 Idag har jag börjat på fienderna, jag har fått hjälp hur man gör så att jag kan fortsätta hemma.
+
+28/5-2021
+Nu har jag gjort klart projektet hemma.

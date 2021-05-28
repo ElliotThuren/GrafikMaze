@@ -48,7 +48,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
     Polygon t = new Polygon(xss,yss,xss.length);
 
 
-    Enemy[] enemy = new Enemy[2];
+    Enemy[] enemy = new Enemy[39];
 
     public GrafikMaze() {
         JFrame frame = new JFrame("Killer Maze Raze!");
@@ -98,8 +98,47 @@ public class GrafikMaze extends Canvas  implements Runnable {
         playerVX = 0;
         playerVY = 0;
 
-        enemy[0] = new Enemy(96,296,1,0);
-        enemy[1] = new Enemy(96,396,0,1);
+        enemy[0] = new Enemy(96,296,3,0);
+        enemy[1] = new Enemy(96,396,3,1);
+        enemy[2] = new Enemy(96,496,-1,2);
+        enemy[3] = new Enemy(196,96,8,0);
+        enemy[4] = new Enemy(196,196,2,1);
+        enemy[5] = new Enemy(296,296,-1,1);
+        enemy[6] = new Enemy(296,396,3,2);
+        enemy[7] = new Enemy(396,96,0,3);
+        enemy[8] = new Enemy(396,196,-1,4);
+        enemy[9] = new Enemy(496,196,1,1);
+        enemy[10] = new Enemy(496,296,1,-2);
+        enemy[11] = new Enemy(496,396,2,3);
+        enemy[12] = new Enemy(496,496,0,6);
+
+        enemy[13] = new Enemy(820,496,2,-1);
+        enemy[14] = new Enemy(970,496,2,1);
+        enemy[15] = new Enemy(696,196,1,1);
+        enemy[16] = new Enemy(696,296,1,-1);
+        enemy[17] = new Enemy(696,396,1,1);
+        enemy[18] = new Enemy(796,196,1,2);
+        enemy[19] = new Enemy(796,296,1,-2);
+        enemy[20] = new Enemy(896,96,2,1);
+        enemy[21] = new Enemy(996,96,-2,1);
+        enemy[22] = new Enemy(1096,220,-1,2);
+        enemy[23] = new Enemy(1096,370,1,2);
+
+        enemy[24] = new Enemy(1296,196,1,2);
+        enemy[25] = new Enemy(1296,296,1,-2);
+        enemy[26] = new Enemy(1296,396,1,2);
+        enemy[27] = new Enemy(1396,196,2,4);
+        enemy[28] = new Enemy(1396,296,2,-4);
+        enemy[29] = new Enemy(1396,396,2,4);
+        enemy[30] = new Enemy(1496,196,1,2);
+        enemy[31] = new Enemy(1496,296,2,3);
+        enemy[32] = new Enemy(1496,396,1,2);
+        enemy[33] = new Enemy(1596,196,1,3);
+        enemy[34] = new Enemy(1596,296,-1,3);
+        enemy[35] = new Enemy(1596,396,1,3);
+        enemy[36] = new Enemy(1696,196,1,1);
+        enemy[37] = new Enemy(1696,296,2,1);
+        enemy[38] = new Enemy(1696,396,3,2);
     }
 
     public void update() {
@@ -219,43 +258,6 @@ public class GrafikMaze extends Canvas  implements Runnable {
         for (int i = 0; i  < enemy.length;i++ ) {
             drawEnemydot(g, enemy[i].box.x,enemy[i].box.y);
         }
-            drawEnemydot(g, 96,496);
-        drawEnemydot(g, 196,96);
-        drawEnemydot(g, 196,196);
-        drawEnemydot(g, 296,296);
-        drawEnemydot(g, 296,396);
-        drawEnemydot(g, 396,96);
-        drawEnemydot(g, 396,196);
-        drawEnemydot(g, 496,196);
-        drawEnemydot(g, 496,496);
-
-        drawEnemydot(g, 820,496);
-        drawEnemydot(g, 970,496);
-        drawEnemydot(g, 696,196);
-        drawEnemydot(g, 696,296);
-        drawEnemydot(g, 696,396);
-        drawEnemydot(g, 796,196);
-        drawEnemydot(g, 796,296);
-        drawEnemydot(g, 896,96);
-        drawEnemydot(g, 996,96);
-        drawEnemydot(g, 1096,220);
-        drawEnemydot(g, 1096,370);
-
-        drawEnemydot(g, 1296,196);
-        drawEnemydot(g, 1296,296);
-        drawEnemydot(g, 1296,396);
-        drawEnemydot(g, 1396,196);
-        drawEnemydot(g, 1396,296);
-        drawEnemydot(g, 1396,396);
-        drawEnemydot(g, 1496,196);
-        drawEnemydot(g, 1496,296);
-        drawEnemydot(g, 1496,396);
-        drawEnemydot(g, 1596,196);
-        drawEnemydot(g, 1596,296);
-        drawEnemydot(g, 1596,396);
-        drawEnemydot(g, 1696,196);
-        drawEnemydot(g, 1696,296);
-        drawEnemydot(g, 1696,396);
 
         drawGoal1(g, Goal1.x,Goal1.y);
         drawGoal2(g, Goal2.x,Goal2.y);
@@ -316,16 +318,16 @@ public class GrafikMaze extends Canvas  implements Runnable {
         @Override
         public void keyPressed(KeyEvent keyEvent) {
             if (keyEvent.getKeyChar() == 'a') {
-                playerVX = -1;
+                playerVX = -2;
             }
             if (keyEvent.getKeyChar() == 'd') {
-                playerVX = 1;
+                playerVX = 2;
             }
             if (keyEvent.getKeyChar() == 'w') {
-                playerVY = -1;
+                playerVY = -2;
             }
             if (keyEvent.getKeyChar() == 's') {
-                playerVY = 1;
+                playerVY = 2;
             }
         }
 
