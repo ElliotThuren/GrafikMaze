@@ -24,3 +24,6 @@ Nu är jag i princip klar med alla labyrinterna, nu ska jag bara göra så att f
 
 25/5-2021
 Jag är nästan klar med denna uppgift, jag behöver bara lite hjälp med hur jag ska göra med fienderna, så jag har jobbat med fysiken idag.
+
+28/5-2021
+Idag har jag börjat på fienderna, jag har fått hjälp hur man gör så att jag kan fortsätta hemma.

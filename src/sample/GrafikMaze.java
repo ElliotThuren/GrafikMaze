@@ -47,6 +47,9 @@ public class GrafikMaze extends Canvas  implements Runnable {
     int[] yss = {56,150,150,156,156,350,350,356,356,556,556,50,50,556,556,550,550,356,356,350,350,156,156,90,90,90,90,90,90,156,156,350,350,356,356,550,550,356,356,350,350,156,156,90,90,90,90,90,90,156,156,350,350,356,356,550,550,456,456,450,450,256,256,250,250,56,56,250,250,256,256,450,450,516,516,516,516,516,516,450,450,256,256,250,250,56,56,56,250,250,256,256,450,450,516,516,516,516,516,516,450,450,256,256,250,250,56,56};
     Polygon t = new Polygon(xss,yss,xss.length);
 
+
+    Enemy[] enemy = new Enemy[2];
+
     public GrafikMaze() {
         JFrame frame = new JFrame("Killer Maze Raze!");
         this.setSize(1806, 606);
@@ -94,11 +97,19 @@ public class GrafikMaze extends Canvas  implements Runnable {
         player.y = y;
         playerVX = 0;
         playerVY = 0;
+
+        enemy[0] = new Enemy(96,296,1,0);
+        enemy[1] = new Enemy(96,396,0,1);
     }
 
     public void update() {
         player.x += playerVX;
         player.y += playerVY;
+
+        for (int i = 0 ; i < enemy.length ; i++) {
+            enemy[i].box.x += enemy[i].vx;
+            enemy[i].box.y += enemy[i].vy;
+        }
 
         if (player.intersects(Goal1)) {
             System.out.println("Vidare till level 2!");
@@ -136,7 +147,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
 
         }
         if (p.intersects(player)) {
-            System.out.println("Du dog för att du nuddade sidan.");
+            System.out.println("Du dog för att du kolliderade med sidan.");
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -147,7 +158,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
         }
 
         if (s.intersects(player)) {
-            System.out.println("Du dog för att du nuddade sidan.");
+            System.out.println("Du dog för att du kolliderade med sidan.");
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -158,7 +169,7 @@ public class GrafikMaze extends Canvas  implements Runnable {
         }
 
         if (t.intersects(player)) {
-            System.out.println("Du dog för att du nuddade sidan.");
+            System.out.println("Du dog för att du kolliderade med sidan.");
             try {
                 thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -166,6 +177,30 @@ public class GrafikMaze extends Canvas  implements Runnable {
             }
             player.x = 90;
             player.y = 90;
+        }
+
+        for (int i = 0; i  < enemy.length;i++ ) {
+            if (enemy[i].box.intersects(player)) {
+                System.out.println("Du dog för att du kolliderade med en fiende.");
+                try {
+                    thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                player.x = 90;
+                player.y = 90;
+            }
+        }
+        for (int i = 0; i  < enemy.length;i++ ) {
+            if (p.intersects(enemy[i].box) || s.intersects(enemy[i].box) || t.intersects(enemy[i].box)) {
+            try {
+                thread.sleep(0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            enemy[i].vx = -enemy[i].vx;
+            enemy[i].vy = -enemy[i].vy;
+        }
         }
     }
 
@@ -181,8 +216,10 @@ public class GrafikMaze extends Canvas  implements Runnable {
         g.setColor(Color.WHITE);
         g.fillRect(0,0,width,height);
 
-        drawEnemydot(g, 96,296);
-        drawEnemydot(g, 96,496);
+        for (int i = 0; i  < enemy.length;i++ ) {
+            drawEnemydot(g, enemy[i].box.x,enemy[i].box.y);
+        }
+            drawEnemydot(g, 96,496);
         drawEnemydot(g, 196,96);
         drawEnemydot(g, 196,196);
         drawEnemydot(g, 296,296);
