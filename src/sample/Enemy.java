@@ -10,7 +10,7 @@ public class Enemy {
     public Enemy(int x, int y, int vx, int vy) {
         this.vx = vx;
         this.vy = vy;
-        this.box = new Rectangle(x,y,12,12);
+        this.box = new Rectangle(x,y,11,12);
     }
 
 }
