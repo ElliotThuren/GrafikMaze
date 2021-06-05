@@ -32,4 +32,4 @@ Idag har jag börjat på fienderna, jag har fått hjälp hur man gör så att ja
 Nu har jag gjort klart projektet hemma.
 
 5/6-2021
-Post Mortem är nu klart.
+Post Mortem är nu helt klart.
