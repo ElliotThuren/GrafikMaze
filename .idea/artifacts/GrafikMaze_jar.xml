@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GrafikMaze:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GrafikMaze_jar</output-path>
+    <root id="archive" name="GrafikMaze.jar">
+      <element id="module-output" name="GrafikMaze" />
+    </root>
+  </artifact>
+</component>
